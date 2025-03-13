@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
+import image1 from './images/image1.jpg';
+import image2 from './images/image2.jpg';
+import image3 from './images/image3.jpg';
+
+const images = [image1, image2, image3];
 
 function App() {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = ['./image1.jpg', '/image2.jpg', '/image3.jpg'];
+
 
   const nextImage = () => {
     setCurrentImage((currentImage + 1) % images.length);
@@ -15,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
         <h1>Biuro Podróży</h1>
         <h2>Elektronik.pl</h2>
       </header>
@@ -23,7 +28,7 @@ function App() {
       <main>
         <div className="carousel">
           <button onClick={prevImage}>Left</button>
-          <img src={images[currentImage]} alt="carousel" />
+          <img src={images[currentImage]}/>
           <button onClick={nextImage}>Right</button>
         </div>
 

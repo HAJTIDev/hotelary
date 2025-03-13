@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+img {
+  width: 50%; /* or 200px, or any other value */
+  height: auto; /* to maintain aspect ratio */
+}
 
 .App-logo {
   height: 40vmin;
