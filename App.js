@@ -1,26 +1,63 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = ['./image1.jpg', '/image2.jpg', '/image3.jpg'];
+
+  const nextImage = () => {
+    setCurrentImage((currentImage + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((currentImage - 1 + images.length) % images.length);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Biuro Podróży</h1>
+        <h2>Elektronik.pl</h2>
       </header>
+
+      <main>
+        <div className="carousel">
+          <button onClick={prevImage}>Left</button>
+          <img src={images[currentImage]} alt="carousel" />
+          <button onClick={nextImage}>Right</button>
+        </div>
+
+        <section className="hotel-selection">
+          <h3>Wybierz hotel</h3>
+          <div className="hotels">
+            <div>H1</div>
+            <div>H2</div>
+            <div>H3</div>
+          </div>
+
+          <label>
+            Termin pobytu:
+            <input type="date" name="from" />
+            od
+            <input type="date" name="to" />
+            do
+          </label>
+
+          <label>
+            Ilość dorosłych:
+            <input type="number" name="adults" />
+          </label>
+
+          <label>
+            Ilość dzieci:
+            <input type="number" name="children" />
+          </label>
+        </section>
+      </main>
+
+      <button className="submit-button">Zatwierdź</button>
     </div>
   );
 }
 
 export default App;
-
