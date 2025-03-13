@@ -18,6 +18,8 @@ function App() {
     setCurrentImage((currentImage - 1 + images.length) % images.length);
   };
 
+
+
   return (
     <div className="App">
       <header>
